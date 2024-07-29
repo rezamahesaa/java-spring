@@ -2,19 +2,46 @@ package com.example.demo.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tbl_tr_travel")
 public class Travel {
-    private Integer id;
-    private Integer employeeId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
+    private Integer id; 
+    
+    @Column
     private Integer hotelExpense;
+
+    @Column
     private Integer transportExpense;
+
+    @Column
     private Integer otherExpense;
+
+    @Column
     private Integer totalExpense;
+
+    @Column
     private LocalDate submitDate;
 
-    public Travel(Integer id, Integer employeeId, Integer hotelExpense, Integer transportExpense, Integer otherExpense, Integer totalExpense,
+    @ManyToOne
+    @JoinColumn(name = "employee_id", referencedColumnName = "employee_id")
+    private Employee employee;
+
+    public Travel(Integer id, Employee employee, Integer hotelExpense, Integer transportExpense, Integer otherExpense, Integer totalExpense,
         LocalDate submitDate) {
     this.id = id;
-    this.employeeId = employeeId;
+    this.employee = employee;
     this.hotelExpense = hotelExpense;
     this.transportExpense = transportExpense;
     this.otherExpense = otherExpense;
@@ -28,11 +55,11 @@ public class Travel {
     public void setId(Integer id) {
         this.id = id;
     }
-    public Integer getEmployeeId() {
-        return employeeId;
+    public Employee getEmployee() {
+        return employee;
     }
-    public void setEmployeeId(Integer employeeId) {
-        this.employeeId = employeeId;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
     public Integer getHotelExpense() {
         return hotelExpense;
@@ -64,4 +91,5 @@ public class Travel {
     public void setSubmitDate(LocalDate submitDate) {
         this.submitDate = submitDate;
     }
+    
 }

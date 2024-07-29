@@ -1,17 +1,55 @@
 package com.example.demo.model;
 
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+// import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
+@Table(name = "tbl_tr_allowance")
 public class Allowance {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
     private Integer id;
-    private Integer employeeId;
+
+    @Column
     private Integer totalInsuranceExpense;
+
+    @Column
     private Integer thr;
+
+    @Column
     private Integer totalTravelExpense;
+
+    @Column
     private Integer totalAllowance;   
 
-    public Allowance(Integer id, Integer employeeId, Integer totalInsuranceExpense, Integer thr, Integer totalTravelExpense,
+    @OneToMany(mappedBy = "employee")
+    // @JsonIgnore
+    private List<Travel> travels;
+
+    @OneToMany(mappedBy = "employee")
+    // @JsonIgnore
+    private List<Insurance> insurances;
+
+    @OneToOne
+    @JoinColumn(name = "employee_id", referencedColumnName = "id")
+    private Employee employee;
+
+    public Allowance(Integer id, Employee employee, Integer totalInsuranceExpense, Integer thr, Integer totalTravelExpense,
             Integer totalAllowance) {
         this.id = id;
-        this.employeeId = employeeId;
+        this.employee = employee;
         this.totalInsuranceExpense = totalInsuranceExpense;
         this.thr = thr;
         this.totalTravelExpense = totalTravelExpense;
@@ -24,11 +62,11 @@ public class Allowance {
     public void setId(Integer id) {
         this.id = id;
     }
-    public Integer getEmployeeId() {
-        return employeeId;
+    public Employee getEmployee() {
+        return employee;
     }
-    public void setEmployeeId(Integer employeeId) {
-        this.employeeId = employeeId;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
     public Integer getTotalInsuranceExpense() {
         return totalInsuranceExpense;
@@ -54,4 +92,22 @@ public class Allowance {
     public void setTotalAllowance(Integer totalAllowance) {
         this.totalAllowance = totalAllowance;
     }
+
+    public List<Travel> getTravels() {
+        return travels;
+    }
+
+    public void setTravels(List<Travel> travels) {
+        this.travels = travels;
+    }
+
+    public List<Insurance> getInsurances() {
+        return insurances;
+    }
+
+    public void setInsurances(List<Insurance> insurances) {
+        this.insurances = insurances;
+    }
+
+    
 }

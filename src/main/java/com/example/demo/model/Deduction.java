@@ -1,15 +1,38 @@
 package com.example.demo.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tbl_m_deduction")
 public class Deduction {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
     private Integer id;
-    private Integer employeeId;
+
+    @Column
     private Integer tax;
+
+    @Column
     private Integer otherDeduction;
+
+    @Column
     private Integer totalDeduction;
     
-    public Deduction(Integer id, Integer employeeId, Integer tax, Integer otherDeduction, Integer totalDeduction) {
+    @OneToOne
+    @JoinColumn(name = "employee_id", referencedColumnName = "id")
+    private Employee employee;
+
+    public Deduction(Integer id, Employee employee, Integer tax, Integer otherDeduction, Integer totalDeduction) {
         this.id = id;
-        this.employeeId = employeeId;
+        this.employee = employee;
         this.tax = tax;
         this.otherDeduction = otherDeduction;
         this.totalDeduction = totalDeduction;
@@ -20,11 +43,11 @@ public class Deduction {
     public void setId(Integer id) {
         this.id = id;
     }
-    public Integer getEmployeeId() {
-        return employeeId;
+    public Employee getEmployee() {
+        return employee;
     }
-    public void setEmployeeId(Integer employeeId) {
-        this.employeeId = employeeId;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
     public Integer getTax() {
         return tax;

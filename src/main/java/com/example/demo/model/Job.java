@@ -1,9 +1,34 @@
 package com.example.demo.model;
 
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+// import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
+@Table(name = "tbl_m_job")
 public class Job {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
     private Integer id;
+
+    @Column
     private String name;
+
+    @Column
     private Integer basePay;
+
+    @OneToMany(mappedBy = "job")
+    // @JsonIgnore
+    private List<Employee> employees;
     
     public Job(Integer id, String name, Integer basePay) {
         this.id = id;
@@ -29,5 +54,11 @@ public class Job {
         this.basePay = basePay;
     }
 
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
     
 }

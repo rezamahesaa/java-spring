@@ -1,22 +1,73 @@
 package com.example.demo.model;
 
-public class Employee {
-    private Integer id;
-    private Integer jobId;
-    private Integer placementId;
-    private String name;
-    private Integer age;
-    private String address;
-    private String email;
-    private String phone;
-    private Integer grossSalary;
-    private Integer takeHomePay;
+import java.util.List;
 
-    public Employee(Integer id, Integer jobId, Integer placementId, String name, Integer age, String address, String email,
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+// import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
+@Table(name = "tbl_m_employee")
+public class Employee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
+    private Integer id;
+
+    @Column
+    private String name;
+
+    @Column
+    private Integer age;
+
+    @Column
+    private String address;
+
+    @Column
+    private String email;
+
+    @Column
+    private String phone;
+
+    @Column
+    private Integer grossSalary;
+
+    @Column
+    private Integer takeHomePay;    
+
+    @OneToOne(mappedBy = "employee")
+    // @JsonIgnore
+    private List<Deduction> deductions;
+
+    @OneToOne(mappedBy = "employee")
+    // @JsonIgnore
+    private List<Allowance> allowances;
+
+    @OneToOne(mappedBy = "employee")
+    // @JsonIgnore
+    private List<User> users;
+
+    @ManyToOne
+    @JoinColumn(name = "job_id", referencedColumnName = "id")
+    private Job job;
+
+    @ManyToOne
+    @JoinColumn(name = "placement_id", referencedColumnName = "id")
+    private Placement placement;
+
+    public Employee(Integer id, Job job, Placement placement, String name, Integer age, String address, String email,
             String phone, Integer grossSalary, Integer takeHomePay) {
         this.id = id;
-        this.jobId = jobId;
-        this.placementId = placementId;
+        this.job = job;
+        this.placement = placement;
         this.name = name;
         this.age = age;
         this.address = address;
@@ -32,17 +83,17 @@ public class Employee {
     public void setId(Integer id) {
         this.id = id;
     }
-    public Integer getJobId() {
-        return jobId;
+    public Job getJob() {
+        return job;
     }
-    public void setJobId(Integer jobId) {
-        this.jobId = jobId;
+    public void setJob(Job job) {
+        this.job = job;
     }
-    public Integer getPlacementId() {
-        return placementId;
+    public Placement getPlacement() {
+        return placement;
     }
-    public void setPlacementId(Integer placementId) {
-        this.placementId = placementId;
+    public void setPlacement(Placement placement) {
+        this.placement = placement;
     }
     public String getName() {
         return name;
@@ -85,6 +136,29 @@ public class Employee {
     }
     public void setTakeHomePay(Integer takeHomePay) {
         this.takeHomePay = takeHomePay;
+    }
+
+    public List<Deduction> getDeductions() {
+        return deductions;
+    }
+
+    public void setDeductions(List<Deduction> deductions) {
+        this.deductions = deductions;
+    }
+    public List<Allowance> getAllowances() {
+        return allowances;
+    }
+
+    public void setAllowances(List<Allowance> allowances) {
+        this.allowances = allowances;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
     

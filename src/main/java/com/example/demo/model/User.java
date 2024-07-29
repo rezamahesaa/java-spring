@@ -1,16 +1,41 @@
 package com.example.demo.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tbl_m_user")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
     private Integer id;
-    private Integer employeeId;
-    private Integer roleId;
+
+    @Column
     private String username;
+
+    @Column
     private String password;  
+
+    @OneToOne
+    @JoinColumn(name = "employee_id", referencedColumnName = "id")
+    private Employee employee;
+
+    @ManyToOne
+    @JoinColumn(name = "role_id", referencedColumnName = "id")
+    private Role role;
     
-    public User(Integer id, Integer employeeId, Integer roleId, String username, String password) {
+    public User(Integer id, Employee employee, Role role, String username, String password) {
         this.id = id;
-        this.employeeId = employeeId;
-        this.roleId = roleId;
+        this.employee = employee;
+        this.role = role;
         this.username = username;
         this.password = password;
     }
@@ -21,17 +46,17 @@ public class User {
     public void setId(Integer id) {
         this.id = id;
     }
-    public Integer getEmployeeId() {
-        return employeeId;
+    public Employee getEmployee() {
+        return employee;
     }
-    public void setEmployeeId(Integer employeeId) {
-        this.employeeId = employeeId;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
-    public Integer getRoleId() {
-        return roleId;
+    public Role getRole() {
+        return role;
     }
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
+    public void setRole(Role role) {
+        this.role = role;
     }
     public String getUsername() {
         return username;
