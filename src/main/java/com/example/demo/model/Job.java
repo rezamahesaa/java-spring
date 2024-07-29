@@ -1,19 +1,19 @@
 package com.example.demo.model;
 
 public class Job {
-    private int id;
+    private Integer id;
     private String name;
-    private int basePay;
+    private Integer basePay;
     
-    public Job(int id, String name, int basePay) {
+    public Job(Integer id, String name, Integer basePay) {
         this.id = id;
         this.name = name;
         this.basePay = basePay;
     }
-    public int getId() {
+    public Integer getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public String getName() {
@@ -22,10 +22,10 @@ public class Job {
     public void setName(String name) {
         this.name = name;
     }
-    public int getBasePay() {
+    public Integer getBasePay() {
         return basePay;
     }
-    public void setBasePay(int basePay) {
+    public void setBasePay(Integer basePay) {
         this.basePay = basePay;
     }
 

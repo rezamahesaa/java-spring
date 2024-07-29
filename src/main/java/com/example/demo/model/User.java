@@ -1,13 +1,13 @@
 package com.example.demo.model;
 
 public class User {
-    private int id;
-    private int employeeId;
-    private int roleId;
+    private Integer id;
+    private Integer employeeId;
+    private Integer roleId;
     private String username;
     private String password;  
     
-    public User(int id, int employeeId, int roleId, String username, String password) {
+    public User(Integer id, Integer employeeId, Integer roleId, String username, String password) {
         this.id = id;
         this.employeeId = employeeId;
         this.roleId = roleId;
@@ -15,22 +15,22 @@ public class User {
         this.password = password;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
-    public int getEmployeeId() {
+    public Integer getEmployeeId() {
         return employeeId;
     }
-    public void setEmployeeId(int employeeId) {
+    public void setEmployeeId(Integer employeeId) {
         this.employeeId = employeeId;
     }
-    public int getRoleId() {
+    public Integer getRoleId() {
         return roleId;
     }
-    public void setRoleId(int roleId) {
+    public void setRoleId(Integer roleId) {
         this.roleId = roleId;
     }
     public String getUsername() {

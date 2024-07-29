@@ -1,19 +1,19 @@
 package com.example.demo.model;
 
 public class Role {
-    private int id;
+    private Integer id;
     private String name;
-    private int level;
+    private Integer level;
     
-    public Role(int id, String name, int level) {
+    public Role(Integer id, String name, Integer level) {
         this.id = id;
         this.name = name;
         this.level = level;
     }
-    public int getId() {
+    public Integer getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public String getName() {
@@ -22,10 +22,10 @@ public class Role {
     public void setName(String name) {
         this.name = name;
     }
-    public int getLevel() {
+    public Integer getLevel() {
         return level;
     }
-    public void setLevel(int level) {
+    public void setLevel(Integer level) {
         this.level = level;
     }
 

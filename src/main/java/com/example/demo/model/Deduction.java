@@ -1,47 +1,47 @@
 package com.example.demo.model;
 
 public class Deduction {
-    private int id;
-    private int employeeId;
-    private int tax;
-    private int otherDeduction;
-    private int totalDeduction;
+    private Integer id;
+    private Integer employeeId;
+    private Integer tax;
+    private Integer otherDeduction;
+    private Integer totalDeduction;
     
-    public Deduction(int id, int employeeId, int tax, int otherDeduction, int totalDeduction) {
+    public Deduction(Integer id, Integer employeeId, Integer tax, Integer otherDeduction, Integer totalDeduction) {
         this.id = id;
         this.employeeId = employeeId;
         this.tax = tax;
         this.otherDeduction = otherDeduction;
         this.totalDeduction = totalDeduction;
     }
-    public int getId() {
+    public Integer getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
-    public int getEmployeeId() {
+    public Integer getEmployeeId() {
         return employeeId;
     }
-    public void setEmployeeId(int employeeId) {
+    public void setEmployeeId(Integer employeeId) {
         this.employeeId = employeeId;
     }
-    public int getTax() {
+    public Integer getTax() {
         return tax;
     }
-    public void setTax(int tax) {
+    public void setTax(Integer tax) {
         this.tax = tax;
     }
-    public int getOtherDeduction() {
+    public Integer getOtherDeduction() {
         return otherDeduction;
     }
-    public void setOtherDeduction(int otherDeduction) {
+    public void setOtherDeduction(Integer otherDeduction) {
         this.otherDeduction = otherDeduction;
     }
-    public int getTotalDeduction() {
+    public Integer getTotalDeduction() {
         return totalDeduction;
     }
-    public void setTotalDeduction(int totalDeduction) {
+    public void setTotalDeduction(Integer totalDeduction) {
         this.totalDeduction = totalDeduction;
     }
 

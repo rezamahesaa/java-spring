@@ -1,19 +1,19 @@
 package com.example.demo.model;
 
 public class Employee {
-    private int id;
-    private int jobId;
-    private int placementId;
+    private Integer id;
+    private Integer jobId;
+    private Integer placementId;
     private String name;
-    private int age;
+    private Integer age;
     private String address;
     private String email;
     private String phone;
-    private int grossSalary;
-    private int takeHomePay;
+    private Integer grossSalary;
+    private Integer takeHomePay;
 
-    public Employee(int id, int jobId, int placementId, String name, int age, String address, String email,
-            String phone, int grossSalary, int takeHomePay) {
+    public Employee(Integer id, Integer jobId, Integer placementId, String name, Integer age, String address, String email,
+            String phone, Integer grossSalary, Integer takeHomePay) {
         this.id = id;
         this.jobId = jobId;
         this.placementId = placementId;
@@ -26,22 +26,22 @@ public class Employee {
         this.takeHomePay = takeHomePay;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
-    public int getJobId() {
+    public Integer getJobId() {
         return jobId;
     }
-    public void setJobId(int jobId) {
+    public void setJobId(Integer jobId) {
         this.jobId = jobId;
     }
-    public int getPlacementId() {
+    public Integer getPlacementId() {
         return placementId;
     }
-    public void setPlacementId(int placementId) {
+    public void setPlacementId(Integer placementId) {
         this.placementId = placementId;
     }
     public String getName() {
@@ -50,10 +50,10 @@ public class Employee {
     public void setName(String name) {
         this.name = name;
     }
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
     public String getAddress() {
@@ -74,16 +74,16 @@ public class Employee {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-    public int getGrossSalary() {
+    public Integer getGrossSalary() {
         return grossSalary;
     }
-    public void setGrossSalary(int grossSalary) {
+    public void setGrossSalary(Integer grossSalary) {
         this.grossSalary = grossSalary;
     }
-    public int getTakeHomePay() {
+    public Integer getTakeHomePay() {
         return takeHomePay;
     }
-    public void setTakeHomePay(int takeHomePay) {
+    public void setTakeHomePay(Integer takeHomePay) {
         this.takeHomePay = takeHomePay;
     }
 

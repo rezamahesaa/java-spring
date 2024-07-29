@@ -1,13 +1,15 @@
 package com.example.demo.model;
 
+import java.time.LocalDate;
+
 public class Insurance {
-    private int id;
-    private int employeeId;
+    private Integer id;
+    private Integer employeeId;
     private String medicalInformation;
-    private int expense;
-    private String submitDate;
+    private Integer expense;
+    private LocalDate submitDate;
     
-    public Insurance(int id, int employeeId, String medicalInformation, int expense, String submitDate) {
+    public Insurance(Integer id, Integer employeeId, String medicalInformation, Integer expense, LocalDate submitDate) {
         this.id = id;
         this.employeeId = employeeId;
         this.medicalInformation = medicalInformation;
@@ -15,16 +17,16 @@ public class Insurance {
         this.submitDate = submitDate;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
-    public int getEmployeeId() {
+    public Integer getEmployeeId() {
         return employeeId;
     }
-    public void setEmployeeId(int employeeId) {
+    public void setEmployeeId(Integer employeeId) {
         this.employeeId = employeeId;
     }
     public String getMedicalInformation() {
@@ -33,16 +35,16 @@ public class Insurance {
     public void setMedicalInformation(String medicalInformation) {
         this.medicalInformation = medicalInformation;
     }
-    public int getExpense() {
+    public Integer getExpense() {
         return expense;
     }
-    public void setExpense(int expense) {
+    public void setExpense(Integer expense) {
         this.expense = expense;
     }
-    public String getSubmitDate() {
+    public LocalDate getSubmitDate() {
         return submitDate;
     }
-    public void setSubmitDate(String submitDate) {
+    public void setSubmitDate(LocalDate submitDate) {
         this.submitDate = submitDate;
     }
     

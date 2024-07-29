@@ -1,15 +1,15 @@
 package com.example.demo.model;
 
 public class Allowance {
-    private int id;
-    private int employeeId;
-    private int totalInsuranceExpense;
-    private int thr;
-    private int totalTravelExpense;
-    private int totalAllowance;   
+    private Integer id;
+    private Integer employeeId;
+    private Integer totalInsuranceExpense;
+    private Integer thr;
+    private Integer totalTravelExpense;
+    private Integer totalAllowance;   
 
-    public Allowance(int id, int employeeId, int totalInsuranceExpense, int thr, int totalTravelExpense,
-            int totalAllowance) {
+    public Allowance(Integer id, Integer employeeId, Integer totalInsuranceExpense, Integer thr, Integer totalTravelExpense,
+            Integer totalAllowance) {
         this.id = id;
         this.employeeId = employeeId;
         this.totalInsuranceExpense = totalInsuranceExpense;
@@ -18,40 +18,40 @@ public class Allowance {
         this.totalAllowance = totalAllowance;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
-    public int getEmployeeId() {
+    public Integer getEmployeeId() {
         return employeeId;
     }
-    public void setEmployeeId(int employeeId) {
+    public void setEmployeeId(Integer employeeId) {
         this.employeeId = employeeId;
     }
-    public int getTotalInsuranceExpense() {
+    public Integer getTotalInsuranceExpense() {
         return totalInsuranceExpense;
     }
-    public void setTotalInsuranceExpense(int totalInsuranceExpense) {
+    public void setTotalInsuranceExpense(Integer totalInsuranceExpense) {
         this.totalInsuranceExpense = totalInsuranceExpense;
     }
-    public int getThr() {
+    public Integer getThr() {
         return thr;
     }
-    public void setThr(int thr) {
+    public void setThr(Integer thr) {
         this.thr = thr;
     }
-    public int getTotalTravelExpense() {
+    public Integer getTotalTravelExpense() {
         return totalTravelExpense;
     }
-    public void setTotalTravelExpense(int totalTravelExpense) {
+    public void setTotalTravelExpense(Integer totalTravelExpense) {
         this.totalTravelExpense = totalTravelExpense;
     }
-    public int getTotalAllowance() {
+    public Integer getTotalAllowance() {
         return totalAllowance;
     }
-    public void setTotalAllowance(int totalAllowance) {
+    public void setTotalAllowance(Integer totalAllowance) {
         this.totalAllowance = totalAllowance;
     }
 }
