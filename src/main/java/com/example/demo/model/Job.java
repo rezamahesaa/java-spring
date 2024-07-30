@@ -16,14 +16,14 @@ import javax.persistence.Table;
 @Table(name = "tbl_m_job")
 public class Job {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Integer id;
 
     @Column
     private String name;
 
-    @Column
+    @Column(name = "base_pay")
     private Integer basePay;
 
     @OneToMany(mappedBy = "job")
@@ -35,6 +35,11 @@ public class Job {
         this.name = name;
         this.basePay = basePay;
     }
+
+    public Job(){
+
+    }
+    
     public Integer getId() {
         return id;
     }

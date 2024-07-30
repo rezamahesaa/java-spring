@@ -15,29 +15,32 @@ import javax.persistence.Table;
 @Table(name = "tbl_tr_insurance")
 public class Insurance {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Integer id;
 
-    @Column
+    @Column(name = "medical_information")
     private String medicalInformation;
 
     @Column
     private Integer expense;
 
-    @Column
+    @Column(name = "submit_date")
     private LocalDate submitDate;
 
     @ManyToOne
     @JoinColumn(name = "employee_id", referencedColumnName = "employee_id")
-    private Employee employee;
+    private Allowance allowance;
     
-    public Insurance(Integer id, Employee employee, String medicalInformation, Integer expense, LocalDate submitDate) {
+    public Insurance(Integer id, Allowance allowance, String medicalInformation, Integer expense, LocalDate submitDate) {
         this.id = id;
-        this.employee = employee;
+        this.allowance = allowance;
         this.medicalInformation = medicalInformation;
         this.expense = expense;
         this.submitDate = submitDate;
+    }
+
+    public Insurance() {
     }
 
     public Integer getId() {
@@ -46,11 +49,11 @@ public class Insurance {
     public void setId(Integer id) {
         this.id = id;
     }
-    public Employee getEmployee() {
-        return employee;
+    public Allowance getAllowance() {
+        return allowance;
     }
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setAllowance(Allowance allowance) {
+        this.allowance = allowance;
     }
     public String getMedicalInformation() {
         return medicalInformation;

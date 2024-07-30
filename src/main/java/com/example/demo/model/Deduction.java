@@ -13,17 +13,17 @@ import javax.persistence.Table;
 @Table(name = "tbl_m_deduction")
 public class Deduction {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Integer id;
 
     @Column
     private Integer tax;
 
-    @Column
+    @Column(name = "other_deduction")
     private Integer otherDeduction;
 
-    @Column
+    @Column(name = "total_deduction")
     private Integer totalDeduction;
     
     @OneToOne
@@ -37,6 +37,10 @@ public class Deduction {
         this.otherDeduction = otherDeduction;
         this.totalDeduction = totalDeduction;
     }
+
+    public Deduction() {
+    }
+    
     public Integer getId() {
         return id;
     }

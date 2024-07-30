@@ -16,7 +16,7 @@ import javax.persistence.Table;
 @Table(name = "tbl_m_placement")
 public class Placement {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Integer id;
 
@@ -30,6 +30,9 @@ public class Placement {
     public Placement(Integer id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Placement() {
     }
 
     public Integer getId() {

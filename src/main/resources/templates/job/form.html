@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Job</title>
+</head>
+<body>
+    <form method="post" th:action="@{save}" th:object="${job}">
+        <input th:field="*{name}" name = "name" placeholder="Job Name">
+        <input th:field="*{basePay}" name = "basePay" placeholder="Base Pay">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

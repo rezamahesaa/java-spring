@@ -1,7 +1,5 @@
 package com.example.demo.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +16,7 @@ import javax.persistence.Table;
 @Table(name = "tbl_m_employee")
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Integer id;
 
@@ -37,23 +35,23 @@ public class Employee {
     @Column
     private String phone;
 
-    @Column
+    @Column(name = "gross_salary")
     private Integer grossSalary;
 
-    @Column
+    @Column(name = "take_home_pay")
     private Integer takeHomePay;    
 
     @OneToOne(mappedBy = "employee")
     // @JsonIgnore
-    private List<Deduction> deductions;
+    private Deduction deductions;
 
     @OneToOne(mappedBy = "employee")
     // @JsonIgnore
-    private List<Allowance> allowances;
+    private Allowance allowances;
 
     @OneToOne(mappedBy = "employee")
     // @JsonIgnore
-    private List<User> users;
+    private User users;
 
     @ManyToOne
     @JoinColumn(name = "job_id", referencedColumnName = "id")
@@ -77,89 +75,113 @@ public class Employee {
         this.takeHomePay = takeHomePay;
     }
 
+    public Employee(){
+        
+    }
+
     public Integer getId() {
         return id;
     }
+
     public void setId(Integer id) {
         this.id = id;
     }
-    public Job getJob() {
-        return job;
-    }
-    public void setJob(Job job) {
-        this.job = job;
-    }
-    public Placement getPlacement() {
-        return placement;
-    }
-    public void setPlacement(Placement placement) {
-        this.placement = placement;
-    }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public Integer getAge() {
         return age;
     }
+
     public void setAge(Integer age) {
         this.age = age;
     }
+
     public String getAddress() {
         return address;
     }
+
     public void setAddress(String address) {
         this.address = address;
     }
+
     public String getEmail() {
         return email;
     }
+
     public void setEmail(String email) {
         this.email = email;
     }
+
     public String getPhone() {
         return phone;
     }
+
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
     public Integer getGrossSalary() {
         return grossSalary;
     }
+
     public void setGrossSalary(Integer grossSalary) {
         this.grossSalary = grossSalary;
     }
+
     public Integer getTakeHomePay() {
         return takeHomePay;
     }
+
     public void setTakeHomePay(Integer takeHomePay) {
         this.takeHomePay = takeHomePay;
     }
 
-    public List<Deduction> getDeductions() {
+    public Deduction getDeductions() {
         return deductions;
     }
 
-    public void setDeductions(List<Deduction> deductions) {
+    public void setDeductions(Deduction deductions) {
         this.deductions = deductions;
     }
-    public List<Allowance> getAllowances() {
+
+    public Allowance getAllowances() {
         return allowances;
     }
 
-    public void setAllowances(List<Allowance> allowances) {
+    public void setAllowances(Allowance allowances) {
         this.allowances = allowances;
     }
 
-    public List<User> getUsers() {
+    public User getUsers() {
         return users;
     }
 
-    public void setUsers(List<User> users) {
+    public void setUsers(User users) {
         this.users = users;
     }
 
+    public Job getJob() {
+        return job;
+    }
+
+    public void setJob(Job job) {
+        this.job = job;
+    }
+
+    public Placement getPlacement() {
+        return placement;
+    }
+
+    public void setPlacement(Placement placement) {
+        this.placement = placement;
+    }
+    
     
 }

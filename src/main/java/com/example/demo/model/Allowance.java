@@ -18,27 +18,27 @@ import javax.persistence.Table;
 @Table(name = "tbl_tr_allowance")
 public class Allowance {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Integer id;
 
-    @Column
+    @Column(name = "total_insurance_expense")
     private Integer totalInsuranceExpense;
 
     @Column
     private Integer thr;
 
-    @Column
+    @Column(name = "total_travel_expense")
     private Integer totalTravelExpense;
 
-    @Column
+    @Column(name = "total_allowance")
     private Integer totalAllowance;   
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "allowance")
     // @JsonIgnore
     private List<Travel> travels;
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "allowance")
     // @JsonIgnore
     private List<Insurance> insurances;
 
@@ -54,6 +54,9 @@ public class Allowance {
         this.thr = thr;
         this.totalTravelExpense = totalTravelExpense;
         this.totalAllowance = totalAllowance;
+    }    
+
+    public Allowance() {
     }
 
     public Integer getId() {

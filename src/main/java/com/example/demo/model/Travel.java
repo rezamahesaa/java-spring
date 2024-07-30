@@ -15,51 +15,54 @@ import javax.persistence.Table;
 @Table(name = "tbl_tr_travel")
 public class Travel {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Integer id; 
     
-    @Column
+    @Column(name = "hotel_expense")
     private Integer hotelExpense;
 
-    @Column
+    @Column(name = "transport_expense")
     private Integer transportExpense;
 
-    @Column
+    @Column(name = "other_expense")
     private Integer otherExpense;
 
-    @Column
+    @Column(name = "total_expense")
     private Integer totalExpense;
 
-    @Column
+    @Column(name = "submit_date")
     private LocalDate submitDate;
 
     @ManyToOne
     @JoinColumn(name = "employee_id", referencedColumnName = "employee_id")
-    private Employee employee;
+    private Allowance allowance;
 
-    public Travel(Integer id, Employee employee, Integer hotelExpense, Integer transportExpense, Integer otherExpense, Integer totalExpense,
+    public Travel(Integer id, Allowance allowance, Integer hotelExpense, Integer transportExpense, Integer otherExpense, Integer totalExpense,
         LocalDate submitDate) {
     this.id = id;
-    this.employee = employee;
+    this.allowance = allowance;
     this.hotelExpense = hotelExpense;
     this.transportExpense = transportExpense;
     this.otherExpense = otherExpense;
     this.totalExpense = totalExpense;
     this.submitDate = submitDate;
     }
-    
+
+    public Travel() {
+    }
+
     public Integer getId() {
         return id;
     }
     public void setId(Integer id) {
         this.id = id;
     }
-    public Employee getEmployee() {
-        return employee;
+    public Allowance getAllowance() {
+        return allowance;
     }
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setAllowance(Allowance allowance) {
+        this.allowance = allowance;
     }
     public Integer getHotelExpense() {
         return hotelExpense;

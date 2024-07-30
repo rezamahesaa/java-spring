@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Job</title>
+</head>
+<body>
+    <a th:href="@{job/form}">ADD NEW JOB</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>BASE PAY</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="job : ${jobs}">  
+                <!-- Dollar ($) itu untuk penanda kl itu objek -->
+                <td th:text="${job.id}"></td>
+                <td th:text="${job.name}"></td>
+                <td th:text="${job.basePay}"></td>
+                <td>
+                    <a th:href="@{'/job/edit?inputId=' + ${job.id}}">EDIT</a> | 
+                    <a th:href="@{'/job/delete?inputId=' + ${job.id}}">DELETE</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

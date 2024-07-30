@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Table(name = "tbl_m_user")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Integer id;
 
@@ -38,6 +38,9 @@ public class User {
         this.role = role;
         this.username = username;
         this.password = password;
+    }
+
+    public User() {
     }
 
     public Integer getId() {
