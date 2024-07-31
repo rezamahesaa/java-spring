@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Employee</title>
+</head>
+<body>
+    <a th:href="@{employee/form}">ADD NEW EMPLOYEE</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>AGE</th>
+                <th>ADDRESS</th>
+                <th>EMAIL</th>
+                <th>PHONE</th>
+                <th>TAKE HOME PAY</th>
+                <th>JOB NAME</th>
+                <th>PLACEMENT NAME</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="employee : ${employees}">  
+                <td th:text="${employee.id}"></td>
+                <td th:text="${employee.name}"></td>
+                <td th:text="${employee.age}"></td>
+                <td th:text="${employee.address}"></td>
+                <td th:text="${employee.email}"></td>
+                <td th:text="${employee.phone}"></td>
+                <td th:text="${employee.takeHomePay}"></td>
+                <td th:text="${employee.job.name}"></td>
+                <td th:text="${employee.placement.name}"></td>
+                <td>
+                    <a th:href="@{'/employee/edit?inputId=' + ${employee.id}}">EDIT</a> 
+                    | 
+                    <a th:href="@{'/employee/delete?inputId=' + ${employee.id}}">DELETE</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

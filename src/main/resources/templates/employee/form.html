@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Employee</title>
+</head>
+<body>
+    <form method="post" th:action="@{save}" th:object="${employee}"><br>
+        <input th:field="*{name}" name = "name" placeholder="Employee Name"><br>
+        <input th:field="*{age}" name = "age" placeholder="Age"><br>
+        <input th:field="*{address}" name = "address" placeholder="Address"><br>
+        <input th:field="*{email}" name = "email" placeholder="Email"><br>
+        <input th:field="*{phone}" name = "phone" placeholder="Phone"><br>
+        <select th:field="*{job}" name="job">
+            <option value="" disabled selected>Select Job</option>
+            <option th:each="job : ${jobs}" th:value="${job.id}" th:text="${job.name}"></option>
+        </select><br>
+        <select th:field="*{placement}" name="placement">
+            <option value="" disabled selected>Select Placement</option>
+            <option th:each="placement : ${placements}" th:value="${placement.id}" th:text="${placement.name}"></option>
+        </select><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

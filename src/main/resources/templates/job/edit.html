@@ -7,7 +7,7 @@
 </head>
 <body>
     <form method="post" th:action="@{save}" th:object="${job}">
-        <input th:field="*{id}" name = "id" placeholder="ID" readonly>
+        <input th:field="*{id}" name = "id" readonly hidden>
         <input th:field="*{name}" name = "name" placeholder="Job Name">
         <input th:field="*{basePay}" name = "basePay" placeholder="Base Pay">
         <button type="submit">Submit</button>
